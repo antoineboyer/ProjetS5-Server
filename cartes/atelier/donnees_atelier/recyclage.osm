@@ -1,0 +1,39 @@
+<?xml version='1.0' standalone='no'?>
+<osm version='0.6' generator='xapi: OSM Extended API 2.0' attribution='http://wiki.openstreetmap.org/wiki/Attribution' xmlns:xapi='http://www.informationfreeway.org/xapi/0.6' xapi:uri='/api/0.6/node[amenity=recycling][bbox=4.86465,45.77530,4.89021,45.78700]' xapi:planetDate='20101006' xapi:copyright='2010 OpenStreetMap contributors' xapi:license='Creative commons CC-BY-SA 2.0' xapi:bugs='For assistance or to report bugs contact 80n80n@gmail.com' xapi:instance='zappyOsm'>
+  <node id='259028168' lat='45.7820267' lon='4.8771826' user='reiLento' timestamp='2008-04-21T15:18:47Z' uid='32332' version='1' changeset='218085'>
+    <tag k='amenity' v='recycling'/>
+    <tag k='created_by' v='Potlatch 0.8a'/>
+  </node>
+  <node id='299548378' lat='45.7783693' lon='4.8749162' user='reiLento' timestamp='2008-09-24T20:21:53Z' uid='32332' version='1' changeset='691433'>
+    <tag k='amenity' v='recycling'/>
+    <tag k='created_by' v='Potlatch 0.10b'/>
+  </node>
+  <node id='669959323' lat='45.7764662' lon='4.8670373' user='Xapitoun' timestamp='2010-03-19T21:14:40Z' uid='231539' version='1' changeset='4174454'>
+    <tag k='amenity' v='recycling'/>
+    <tag k='recycling:glass' v='yes'/>
+  </node>
+  <node id='669959327' lat='45.7786343' lon='4.8698886' user='Xapitoun' timestamp='2010-03-19T21:14:40Z' uid='231539' version='1' changeset='4174454'>
+    <tag k='amenity' v='recycling'/>
+    <tag k='recycling:glass' v='yes'/>
+  </node>
+  <node id='299549001' lat='45.7822961' lon='4.8782292' user='reiLento' timestamp='2008-09-24T20:22:49Z' uid='32332' version='1' changeset='691433'>
+    <tag k='amenity' v='recycling'/>
+    <tag k='created_by' v='Potlatch 0.10b'/>
+  </node>
+  <node id='300855624' lat='45.7812158' lon='4.8846914' user='reiLento' timestamp='2008-09-29T14:05:06Z' uid='32332' version='1' changeset='718286'>
+    <tag k='amenity' v='recycling'/>
+    <tag k='created_by' v='Potlatch 0.10c'/>
+  </node>
+  <node id='309603636' lat='45.7828464' lon='4.8794108' user='reiLento' timestamp='2008-11-03T09:13:23Z' uid='32332' version='1' changeset='664485'>
+    <tag k='amenity' v='recycling'/>
+    <tag k='created_by' v='Potlatch 0.10f'/>
+  </node>
+  <node id='301355875' lat='45.7781454' lon='4.8793968' user='reiLento' timestamp='2008-10-01T12:17:59Z' uid='32332' version='1' changeset='16649'>
+    <tag k='amenity' v='recycling'/>
+    <tag k='created_by' v='Potlatch 0.10c'/>
+  </node>
+  <node id='301355877' lat='45.7796778' lon='4.8817485' user='reiLento' timestamp='2008-10-01T12:18:19Z' uid='32332' version='1' changeset='16649'>
+    <tag k='amenity' v='recycling'/>
+    <tag k='created_by' v='Potlatch 0.10c'/>
+  </node>
+</osm>
