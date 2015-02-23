@@ -1,7 +1,7 @@
 function init() 
 {
 	//Ici création et paramétrage de OpenMapStreet
-	epsg4326 = new OpenLayers.Projection("EPSG:4326");
+	var epsg4326 = new OpenLayers.Projection("EPSG:4326");
 
 	var map = new OpenLayers.Map('map', {controls:[]});
 	map.addControl(new OpenLayers.Control.Navigation());
@@ -17,15 +17,7 @@ function init()
 	map.addLayer(osmLayer);
 	//map.zoomToMaxExtent();
 	//map.setCenter(new OpenLayers.LonLat(310640, 5958419), 6);
-	
-	return map;
-
-}
-
-function affichageMap(longi,lati,map)
-{
-
-	map.setCenter(new OpenLayers.LonLat(longi,lati).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject()), 14);
+		map.setCenter(new OpenLayers.LonLat(-4.56854, 48.35825).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject()), 14);
 
 	//Ici création et paramétrage de GoogleMaps
 	var gsat = new OpenLayers.Layer.Google(
@@ -39,4 +31,12 @@ function affichageMap(longi,lati,map)
 	var parkings = new OpenLayers.Layer.Text( "Parkings",
    {location:"markerlist.php", projection: epsg4326});
    map.addLayer(parkings) ;
+
+
+}
+var zoom function()
+{
+	map =init();
+		map.setCenter(new OpenLayers.LonLat(4.56854, 48.35825).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject()), 14);
+
 }
