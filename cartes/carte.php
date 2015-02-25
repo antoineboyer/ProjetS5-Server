@@ -33,8 +33,26 @@
               <div class="col-md-2"></div> 
          </div>
          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+               <!-- Ici je teste 'affichage des données bateaux-->
+               <?php
+               include('donneeBateau.php');
+               ?>
+            </div>
+         <div>
+         <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+               <!-- Ici je teste 'affichage des données bouées-->
+               <?php
+               include('donneeBouee.php');
+               ?>
+            </div>
+         <div>
+
+
+         <div class="row">
             <div class="col-md-12">
-               <input type="button" id="button1" value="zoom quelque part"> 
+               <!--<input type="button" id="button1" value="zoom quelque part"> 
                <script>
                   var element = document.getElementById("button1");
 
@@ -47,7 +65,7 @@
                                                          //var map = document.getElementById("map");
                                                          map.setCenter(new OpenLayers.LonLat(10.56854, 48.35825).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject()), 14);
                                                       
-                                                      },false);
+                                                      },false);    
 
 
                //Exemple de refresh d'élement de page sans utiliser AJAX
@@ -62,7 +80,7 @@
                         }, 3000);
                      });
                */
-               </script> 
+               </script> -->
                
             </div>
          </div>

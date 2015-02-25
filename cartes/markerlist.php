@@ -29,6 +29,15 @@ while ($donnees = $reponse->fetch())
 
 }
 
-$reponse->closeCursor(); 
+//$reponse->closeCursor(); 
+
+//Test
+$response1 = $bdd->query('SELECT * FROM Device1');
+while ($donnees = $response1->fetch())
+{
+	$id = $donnees['id'];
+	echo $id;
+	echo "coucou";
+}
 
 ?>
