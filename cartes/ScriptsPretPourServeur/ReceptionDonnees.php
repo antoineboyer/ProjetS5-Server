@@ -11,11 +11,11 @@
 
 	$identifiant= $data7.$data1.$data0;
 
-	$db = mysqli_connect('localhost', 'root', 'password', 'nomBase') or die ("Erreur : " . mysqli_error($db));
+	$db = mysqli_connect('localhost', 'root', 'Y7EkU7b2', 'gsctuto') or die ("Erreur : " . mysqli_error($db));
 	$sql1 = "SELECT * FROM Appareil";
 	$req1 = mysqli_query($db,$sql1);
 	$jeton = False;
-	while($row = mysqli_fetch_assoc($req)) {
+	while($row = mysqli_fetch_assoc($req1)) {
 		if($identifiant === $row['id']){
 			echo "L'identifiant est deja present dans la table";
 			$jeton = True;
@@ -24,6 +24,9 @@
 
 	if($jeton === False){
 		$sql2 = "INSERT INTO Appareil(id,nom,type,freq,batterie,emissionSonore,emissionGPS) VALUES ('$identifiant', '$data1', '$data0', \"1000\", '$data5', '0', '1')";
+		$req2 = mysqli_query($db,$sql2);
+	} else {
+		$sql2 = "UPDATE Appareil SET batterie = '$data5' WHERE nom = '$data1' ";
 		$req2 = mysqli_query($db,$sql2);
 	}
 
