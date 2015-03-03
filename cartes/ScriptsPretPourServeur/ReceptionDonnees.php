@@ -11,7 +11,7 @@
 
 	$identifiant= $data7.$data1.$data0;
 
-	$db = mysqli_connect('localhost', 'root', 'Y7EkU7b2', 'gsctuto') or die ("Erreur : " . mysqli_error($db));
+	$db = mysqli_connect('localhost', 'root', 'password', 'nomBase') or die ("Erreur : " . mysqli_error($db));
 	$sql1 = "SELECT * FROM Appareil";
 	$req1 = mysqli_query($db,$sql1);
 	$jeton = False;
