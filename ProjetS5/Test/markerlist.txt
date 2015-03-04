@@ -1,0 +1,5 @@
+lon	lat	title	description	icon
+4.86580	45.78177	Parking 1	Parking de 500 places	marker_red.png
+4.87056	45.78462	Parking 2	Parking de 200 places	marker_blue.png
+4.88193	45.78507	Parking 3	Parking de 750 places	marker_blue.png
+4.87234	45.77972	Parking 4	Parking de 120 places	marker_red.png
