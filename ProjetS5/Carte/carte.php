@@ -15,7 +15,8 @@
       
    </head>	
 
-   <body onload="map = init(); affichageMap(-4.56854, 48.35825, map);">
+   <body onload="map = init(); affichageMap(180, 90, map);">
+      <script src="refreshPoints.js"></script>
       <div class="container">
          <div class="jumbotron">
             <header class="row">
@@ -35,7 +36,7 @@
               <div class="col-md-2"></div> 
          </div>
          <div class="row">
-            <div id ="testAjax" class="col-md-10 col-md-offset-1">
+            <div id ="Bateau" class="col-md-12 ">
                <!-- Ici je teste 'affichage des données bateaux-->
                <?php
                include('donneeBateau.php');
@@ -43,7 +44,7 @@
             </div>
          <div>
          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div id="Bouee"class="col-md-12 ">
                <!-- Ici je teste 'affichage des données bouées-->
                <?php
                include('donneeBouee.php');
@@ -68,36 +69,8 @@
    </html>
 
 <!-- Ici, les fichiers JS/AJAX pour rafraîchir automatiquement certains div de la page-->
-   <script>
-      (function($)
-      {
-          $(document).ready(function()
-          {
-              $.ajaxSetup(
-              {
-                  cache: false,
-                  beforeSend: function() {
-                      $('#content').hide();
-                      $('#loading').show();
-                  },
-                  complete: function() {
-                      $('#loading').hide();
-                      $('#content').show();
-                  },
-                  success: function() {
-                      $('#loading').hide();
-                      $('#content').show();
-                  }
-              });
-              var $container = $("#testAjax");
-              $container.load("donneeBateau.php");
-              var refreshId = setInterval(function()
-              {
-                  $container.load('donneeBateau .php');
-              }, 10000);
-          });
-      })(jQuery);
-   </script>
+   
+    <script src="refreshAppareil.js"></script>
 
 
 

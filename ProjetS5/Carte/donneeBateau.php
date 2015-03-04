@@ -1,21 +1,21 @@
-      <!--<meta http-equiv="Refresh" content="10"> --> 
-
 <!-- Script PHP permettant la création du tableau regroupant les données concernant les bateaux -->
 <table class="table">
 	<caption>Les données des bateaux</caption>
 	<thead>
+	<!-- Titre des colonnes du tableau-->
 		<tr>
-			<th>Id</th>
 			<th>Nom</th>
 			<th>Latitude</th>
 			<th>Longitude</th>
 			<th>Freq</th>
 			<th>Modifier Freq</th>
+			<th>EmissionGPS</th>
 			<th>Batterie</th>
 			<th>Date / Heure</th>
 			<th>Centrer sur</th>
 		</tr>
 	</thead>
+	<!-- Interieur du tableau-->
 	<tbody>
 <?php
 
@@ -30,8 +30,8 @@
 	        die('Erreur : '.$e->getMessage());
 	}
 	
-	//Ici, récupération des données en commun de DataBoat et de Device
-	$response2 = $bdd->query('SELECT h1.* , h2.*, a.nom, a.freq,a.id AS id , a.batterie AS batterie
+	//Ici, récupération des dernières données de Appareil et HistBateau dans la base de donnée
+	$response2 = $bdd->query('SELECT h1.* , h2.*, a.nom, a.freq,a.id AS id , a.batterie AS batterie, a.emissionGPS AS GPS
                            	  FROM  Appareil a, HistBateau h1
                               INNER JOIN (
                               	SELECT h.idEtranger, MAX(h.dateheure) AS MaxDateTime
@@ -45,15 +45,19 @@
 	while ($donnees2 = $response2->fetch())
 	{
 ?>
-	
+	<!-- Remplissage du tableau, autant de ligne que de bateau-->
 	<tr>
-		<th> <?php echo $id =$donnees2['id']?> </th>
+		<?php $id =$donnees2['id']?> 
+		<!-- Affichage du nom du bateau-->
 		<th> <?php echo $nom = $donnees2['nom']?> </th>
+		<!-- Affichage de la latitude du bateau-->
 		<th> <?php echo $lati = $donnees2['lati']?> </th>
+		<!-- Affichage de la longitude du bateau-->
 		<th> <?php echo $longi = $donnees2['longi']?> </th>
+		<!-- Affichage de la fréquence d'émission avec possibilité de changement grâce un FORM méthode POST-->
 		<th> <?php echo $donnees2['freq']?> </th>
 		<th>
-			<form method="post" action="modifierFreq.php">
+			<form method="post" action="update.php">
 	   		<p>
 	   		<input type="hidden" id="id" name="identifiant" value="<?php echo $id ?>">
 	       	<input type="number" id="frequence" name="freq"  size="3" />
@@ -62,10 +66,26 @@
 	   		</p>
 			</form>
 		</th>
+		<!-- Affichage de l'émission ou non du GPS du bateau avec possibilité de changement grâce un FORM méthode POST-->
+		<th> 
+			<?php echo $GPS = $donnees2['GPS']?>
+			</br>
+			<form method="post" action="update.php">
+	   		<p>
+	   		<input type="hidden" id="id" name="identifiant" value="<?php echo $id ?>">
+	   		<input type="hidden" id="GPS" name="emission" value="<?php echo $GPS ?>">
+	       	<input type="submit" value="On(1)/Off(0)"/>
+	   		</p>
+			</form>
+		</th>
+		<!-- Affichage de la batterie du bateau-->
 		<th> <?php echo $donnees2['batterie']?> </th>
+		<!-- Affichage de la dernière mise à jour des données-->
 		<th> <?php echo $donnees2['dateheure']?> </th>
+		<!-- Affichage d'un bouton permettant de centrer la carte sur le bateau courant'-->
 		<th> 
 			<input type="button" id="<?php echo $nom  ?>" value="<?php echo $nom ?>"   /> 
+			<!-- Le script JS suivant est lié au boutton ci-dessus et permet le Zoom sur le bateau courant-->
 	               <script>
 	                  var element = document.getElementById("<?php echo $nom; ?>");
 
@@ -78,8 +98,8 @@
 	                                 //var map = document.getElementById("map");
 	                                 var lati= '<?php echo $lati; ?>' ;
 	                                 var longi= '<?php echo $longi; ?>' ; 
-	                                 map.setCenter(new OpenLayers.LonLat(longi, lati).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject()), 10);
-	                              
+	                                 map.setCenter(new OpenLayers.LonLat(longi, lati).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject()), 16);
+	                              	 
 	                              },false);
 	               </script> 
 		 </th>

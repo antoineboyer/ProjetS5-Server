@@ -1,3 +1,4 @@
+//
 function init() 
 {
 	//Ici création et paramétrage de OpenMapStreet
@@ -36,7 +37,7 @@ function affichageMap(longi,lati,map)
 	map.addLayer(gsat);
 
 	//Ajout d'une couche de points issus d'un fichier texte
-	var parkings = new OpenLayers.Layer.Text( "Parkings",
+	/*var parkings = new OpenLayers.Layer.Text( "Parkings",
    {location:"markerlist.php", projection: epsg4326});
-   map.addLayer(parkings) ;
+   map.addLayer(parkings) ;*/
 }

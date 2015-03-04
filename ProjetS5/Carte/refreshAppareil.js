@@ -1,5 +1,5 @@
 //Rafraichir le tableau de donnée bateau
-<script>
+
       (function($)
       {
           $(document).ready(function()
@@ -20,18 +20,18 @@
                       $('#content').show();
                   }
               });
-              var $container = $("#testAjax");
+              var $container = $("#Bateau");
               $container.load("donneeBateau.php");
               var refreshId = setInterval(function()
               {
-                  $container.load('donneeBouee.php');
-              }, 10000);
+                  $container.load('donneeBateau.php');
+              }, 5000);
           });
       })(jQuery);
-   </script>
+  
 
    // Rafraichir le tableau de donnée bouée
-/*<script>
+
       (function($)
       {
           $(document).ready(function()
@@ -52,13 +52,14 @@
                       $('#content').show();
                   }
               });
-              var $container = $("#testAjax");
-              $container.load("donneeBateau.php");
+              var $container = $("#Bouee");
+              $container.load("donneeBouee.php");
               var refreshId = setInterval(function()
               {
                   $container.load('donneeBouee.php');
-              }, 10000);
+              }, 5000);
           });
       })(jQuery);
-   </script>*/
+   
+
 
