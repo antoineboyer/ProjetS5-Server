@@ -35,7 +35,7 @@
               <div class="col-md-2"></div> 
          </div>
          <div class="row">
-            <div id ="testAjax"class="col-md-10 col-md-offset-1">
+            <div id ="testAjax" class="col-md-10 col-md-offset-1">
                <!-- Ici je teste 'affichage des données bateaux-->
                <?php
                include('donneeBateau.php');
@@ -68,7 +68,36 @@
    </html>
 
 <!-- Ici, les fichiers JS/AJAX pour rafraîchir automatiquement certains div de la page-->
-   <script src="refreshAppareil.js"></script>
+   <script>
+      (function($)
+      {
+          $(document).ready(function()
+          {
+              $.ajaxSetup(
+              {
+                  cache: false,
+                  beforeSend: function() {
+                      $('#content').hide();
+                      $('#loading').show();
+                  },
+                  complete: function() {
+                      $('#loading').hide();
+                      $('#content').show();
+                  },
+                  success: function() {
+                      $('#loading').hide();
+                      $('#content').show();
+                  }
+              });
+              var $container = $("#testAjax");
+              $container.load("donneeBateau.php");
+              var refreshId = setInterval(function()
+              {
+                  $container.load('donneeBateau .php');
+              }, 10000);
+          });
+      })(jQuery);
+   </script>
 
 
 

@@ -78,7 +78,7 @@
 	                                 //var map = document.getElementById("map");
 	                                 var lati= '<?php echo $lati; ?>' ;
 	                                 var longi= '<?php echo $longi; ?>' ; 
-	                                 map.setCenter(new OpenLayers.LonLat(longi, lati).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject()), 7);
+	                                 map.setCenter(new OpenLayers.LonLat(longi, lati).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject()), 10);
 	                              
 	                              },false);
 	               </script> 

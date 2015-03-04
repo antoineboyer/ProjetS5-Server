@@ -24,7 +24,7 @@
               $container.load("donneeBateau.php");
               var refreshId = setInterval(function()
               {
-                  $container.load('donneeBateau.php');
+                  $container.load('donneeBouee.php');
               }, 10000);
           });
       })(jQuery);

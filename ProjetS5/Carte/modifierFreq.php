@@ -7,7 +7,7 @@
 	//echo $freq;echo $id;echo "\n";echo $int;
 
 
-	if ($int>1 && $int<10000)
+	if ($int>1 && $int<100000)
 	{	
 		$db = mysqli_connect('localhost', 'root', 'root', 'testcarte') or die ("Erreur : " . mysqli_error($db));
 
@@ -34,7 +34,7 @@
 	       	<input type="submit" value="Revenir"/>
 			</form>
 			</center>
-			
+
 		<?php
 	}
 ?>
