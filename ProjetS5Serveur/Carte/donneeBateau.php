@@ -21,7 +21,7 @@
 	try
 	{
 	   // On se connecte à MySQL
-	   $bdd = new PDO('mysql:host=db565998775.db.1and1.com;dbname=db565998775;charset=utf8', 'dbo565998775', 'orionbrest');
+	   $bdd = new PDO('mysql:host=****;dbname=****;charset=utf8', '****', '****');
 	}
 	catch(Exception $e)
 	{
@@ -30,7 +30,7 @@
 	}
 	
 	//Ici, récupération des dernières données de Appareil et HistBateau dans la base de donnée
-	$response2 = $bdd->query('SELECT h1.* , h2.*, a.nom, a.freq,a.id AS id , a.batterie AS batterie, a.emissionGPS AS GPS
+	$response2 = $bdd->query("SELECT h1.* , h2.*, a.type, a.nom, a.freq,a.id AS id , a.batterie AS batterie, a.emissionGPS AS GPS
                            	  FROM  Appareil a, HistBateau h1
                               INNER JOIN (
                               	SELECT h.idEtranger, MAX(h.dateheure) AS MaxDateTime
@@ -38,8 +38,8 @@
                               	GROUP BY h.idEtranger ) h2
                               ON h1.idEtranger = h2.idEtranger
                               AND h1.dateheure = h2.MaxDateTime
-                              WHERE a.id=h1.idEtranger
-                            ');
+                              WHERE a.id=h1.idEtranger AND a.type = \"bateau\"
+                            ");
 
 	while ($donnees2 = $response2->fetch())
 	{

@@ -1,11 +1,14 @@
 <?php
+	// Fichier permettant d'envoyer du serveur vers le client les données fréquences, emissionGPS et emissionSonore aux bateaux/bouées
 
+	// Récupération de l'identifiant de l'appareil
 	$data0=$_POST["id"];
 	
-	$db = mysqli_connect('db565998775.db.1and1.com', 'dbo565998775', 'orionbrest', 'db565998775') or die ("Error " . mysqli_error($db));
+	$db = mysqli_connect('****', '****', '****', '****') or die ("Error " . mysqli_error($db));
+	// Récupération des données modifiées dans la table appareil
 	$sql = "SELECT *  FROM Appareil WHERE id = '$data0' ";
 	$req = mysqli_query($db,$sql);
-
+	// Affichage des données du côté client pour pouvoir les récupérer
 	while($row = mysqli_fetch_assoc($req))
   		echo $row['freq'] . ";" . $row['emissionGPS'] . ";" . $row['emissionSonore'] . ";";
   

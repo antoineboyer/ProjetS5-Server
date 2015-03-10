@@ -38,7 +38,7 @@ function get_distance_m($lat1, $lng1, $lat2, $lng2) {
 	try
 	{
 	   // On se connecte à MySQL
-	   $bdd = new PDO('mysql:host=db565998775.db.1and1.com;dbname=db565998775;charset=utf8', 'dbo565998775', 'orionbrest');
+	   $bdd = new PDO('mysql:host=****;dbname=****;charset=utf8', '****', '****');
 	}
 	catch(Exception $e)
 	{
@@ -47,17 +47,21 @@ function get_distance_m($lat1, $lng1, $lat2, $lng2) {
 	}
 	//Array de coordonées des bateaux
 	$Tcoordonnees = array();
+	foreach ($Tcoordonnees as $cle => $val) 
+	{ 
+    unset($Tcoordonnees[$cle]); 
+	}
 	//Ici récupération des coordonnées GPS des différents bateaux
-	$response = $bdd->query('SELECT bh1.* , bh2.*
-                           	 FROM  HistBateau bh1
-                             INNER JOIN (
-                              	SELECT bh.idEtranger, MAX(bh.dateheure) AS MaxDateTime
-                              	FROM HistBateau bh
-                              	GROUP BY bh.idEtranger ) bh2
-                             ON bh1.idEtranger = bh2.idEtranger
-                             AND bh1.dateheure = bh2.MaxDateTime
-                            
-                            ');
+	$response = $bdd->query("SELECT h1.* , h2.*, a.type, a.nom, a.freq,a.id AS id , a.batterie AS batterie, a.emissionGPS AS GPS
+                           	  FROM  Appareil a, HistBateau h1
+                              INNER JOIN (
+                              	SELECT h.idEtranger, MAX(h.dateheure) AS MaxDateTime
+                              	FROM HistBateau h
+                              	GROUP BY h.idEtranger ) h2
+                              ON h1.idEtranger = h2.idEtranger
+                              AND h1.dateheure = h2.MaxDateTime
+                              WHERE a.id=h1.idEtranger AND a.type = \"bateau\"
+                              "); 
 	//Remplissage du tableau Tcoordonees avec les différentes coordonnées des bateaux
 	while ($donnees = $response->fetch())
 	{
@@ -72,7 +76,7 @@ function get_distance_m($lat1, $lng1, $lat2, $lng2) {
 	
 
 	//Ici, récupération des dernières données de Appareil et HistBouee dans la base de donnée
-	$response2 = $bdd->query('SELECT h1.* , h2.*, a.nom, a.freq,a.id AS id , a.batterie AS batterie, a.emissionSonore AS son, a.emissionGPS AS GPS
+	$response2 = $bdd->query("SELECT h1.* , h2.*, a.type,a.nom, a.freq,a.id AS id , a.batterie AS batterie, a.emissionSonore AS son, a.emissionGPS AS GPS
                            	  FROM  Appareil a, HistBouee h1
                               INNER JOIN (
                               	SELECT h.idEtranger, MAX(h.dateheure) AS MaxDateTime
@@ -80,8 +84,8 @@ function get_distance_m($lat1, $lng1, $lat2, $lng2) {
                               	GROUP BY h.idEtranger ) h2
                               ON h1.idEtranger = h2.idEtranger
                               AND h1.dateheure = h2.MaxDateTime
-                              WHERE a.id=h1.idEtranger'
-		);
+                              WHERE a.id=h1.idEtranger AND a.type =\"bouee\"
+		");
 	while ($donnees2 = $response2->fetch())
 	{
 		

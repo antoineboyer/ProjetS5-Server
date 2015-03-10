@@ -8,7 +8,7 @@
 			$id = $_POST[appareils];
 			$freq = $_POST[freq];
 			//Modification de la fréquence dans la BDD
-			$db = mysqli_connect('db565998775.db.1and1.com','dbo565998775','orionbrest','db565998775') or die ("Erreur : " . mysqli_error($db));
+			$db = mysqli_connect('****,'****','****','****') or die ("Erreur : " . mysqli_error($db));
 			$sql = "UPDATE Appareil
 					SET freq = '$freq'
 					WHERE id = '$id'
@@ -40,7 +40,7 @@
 	{	
 		$emission = $_POST["emission"];
 		$id = $_POST["identifiant"];
-		$db = mysqli_connect('db565998775.db.1and1.com','dbo565998775','orionbrest','db565998775') or die ("Erreur : " . mysqli_error($db));
+		$db = mysqli_connect('****','****','****','****') or die ("Erreur : " . mysqli_error($db));
 		//Si l'émission est à 0, on la met à 1
 		if ($emission == "0")
 		{

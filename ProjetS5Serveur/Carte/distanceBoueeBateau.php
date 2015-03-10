@@ -26,7 +26,7 @@ if ($On ==False)
 	//Si le son est activé, on change sa valeur dans la BDD
 	else
 	{
-		$db = mysqli_connect('db565998775.db.1and1.com','dbo565998775','orionbrest','db565998775') or die ("Erreur : " . mysqli_error($db));
+		$db = mysqli_connect('****','****','****','****') or die ("Erreur : " . mysqli_error($db));
 		$sql = "UPDATE Appareil
 				SET emissionSonore = '0'
 				WHERE id = '$id'
@@ -51,7 +51,7 @@ else
 	//Si le son n'est pas activé, on change sa valeur dans la BDD
 	else
 	{
-		$db = mysqli_connect('db565998775.db.1and1.com','dbo565998775','orionbrest','db565998775') or die ("Erreur : " . mysqli_error($db));
+		$db = mysqli_connect('****,'****','****','****') or die ("Erreur : " . mysqli_error($db));
 		$sql = "UPDATE Appareil
 				SET emissionSonore = '1'
 				WHERE id = '$id'

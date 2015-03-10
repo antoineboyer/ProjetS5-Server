@@ -4,7 +4,7 @@
 	<!-- Mis en place d'un select/option permettant de choisir à quel appreil on veut changer la fréquence -->
 	<select name="appareils">
 		<?php
-		$db = mysqli_connect('db565998775.db.1and1.com','dbo565998775','orionbrest','db565998775') or die ("Erreur : " . mysqli_error($db));
+		$db = mysqli_connect('****','****','****','****') or die ("Erreur : " . mysqli_error($db));
 		$sql = "SELECT id, nom  FROM Appareil ";
 		$req = mysqli_query($db,$sql);
 		//Après avoir selectionné les id et nom des appareils, on affiche les différents noms.
