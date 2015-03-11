@@ -18,6 +18,7 @@
 		if($data7 === $row['id']){
 			$jeton = True;
 		}
+		// on renvoie la fréquence d'emission, un "0"/"1" pour l'emission GPS et un "0"/"1" pour l'emission sonore séparés par des ";"
 		echo $row['freq'] . ";" . $row['emissionGPS'] . ";" . $row['emissionSonore'] . ";";
 	}
 	//Si le jeton est false, on insère le bateau ou la bouée dans la table appareil, sinon on l'update

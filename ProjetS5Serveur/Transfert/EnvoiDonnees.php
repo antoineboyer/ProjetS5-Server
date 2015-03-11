@@ -10,6 +10,7 @@
 	$req = mysqli_query($db,$sql);
 	// Affichage des données du côté client pour pouvoir les récupérer
 	while($row = mysqli_fetch_assoc($req))
+		// on renvoie la fréquence d'emission, un "0"/"1" pour l'emission GPS et un "0"/"1" pour l'emission sonore séparés par des ";"
   		echo $row['freq'] . ";" . $row['emissionGPS'] . ";" . $row['emissionSonore'] . ";";
   
 ?>
