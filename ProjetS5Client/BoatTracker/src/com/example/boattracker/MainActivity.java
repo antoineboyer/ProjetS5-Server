@@ -186,7 +186,7 @@ public class MainActivity extends Activity implements LocationListener,
 	 * serveur
 	 */
 	private void changerFrequence() {
-		if (freq != "--") {
+		if (!freq.equals("--")) {
 			frequence = Integer.valueOf(freq);
 		}
 	}
